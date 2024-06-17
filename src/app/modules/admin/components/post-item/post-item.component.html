@@ -1,0 +1,84 @@
+<div style="margin-top: 50px;">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="parrent">
+            <div class="child">
+                <div nz-row class="imgDiv">
+                    <h2 style="margin-left: 250px;">Программы</h2>
+                </div>
+
+                <form nz-form [formGroup]="postItemForm">
+                    <div nz-col [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                        <div class="profile-badge">
+                            <label for="upload_profile_image" class="upload_label" *ngIf="selectedFile">
+                                <img class="profile" [src]="imagePreview" alt="profile" formControlName="photo" type="file"/>
+                            </label>
+                            <input type="file" nz-button nzType="primary" id="upload_profile_image"
+                                accept="image/png, image/jpeg" (change)="onFileSelected($event)" />
+                            <button nz-button nzShape="circle"></button>
+                        </div>
+                    </div>
+
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Должно быть заполнено">
+                                <input nz-input placeholder="Название" formControlName="itemName"/>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Должно быть заполнено">
+                                <input nz-input placeholder="Описание" formControlName="description"/>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Должно быть заполнено">
+                                <input nz-input placeholder="Цена" formControlName="price"/>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Должно быть заполнено">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Введите ATK" formControlName="ATK">
+                                    <nz-option *ngFor="let ATK of listOfADR" nzLabel="{{ ATK }}"
+                                        nzValue="{{ ATK }}"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Должно быть заполнено">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Введите DEF" formControlName="DEF">
+                                    <nz-option *ngFor="let DEF of listOfADR" nzLabel="{{ DEF }}"
+                                        nzValue="{{ DEF }}"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Должно быть заполнено">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Введите REZ" formControlName="REZ">
+                                    <nz-option *ngFor="let REZ of listOfADR" nzLabel="{{ REZ }}"
+                                        nzValue="{{ REZ }}"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    
+
+
+                    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="postItem()">
+                        Добавить предмет
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nz-spin>
+</div>

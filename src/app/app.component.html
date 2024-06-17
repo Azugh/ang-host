@@ -1,0 +1,38 @@
+<div *ngIf="!isAdmin && !isUser">
+  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/">Курсовик</a>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Регистрация</a>
+      <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Вход</a>
+    </div>
+  </nz-header>
+</div>
+
+<div *ngIf="isAdmin">
+  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/">Вход как админ</a>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Регистрация</a>
+      <a nz-button nzType="link" routerLink="/admin/item" routerLinkActive="active">Item</a>
+      <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Выход</a>
+    </div>
+  </nz-header>
+</div>
+
+<div *ngIf="isUser">
+  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/">Вход как пользователь</a>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/user/dashboard" routerLinkActive="active">Регистрация</a>
+      <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Выход</a>
+    </div>
+  </nz-header>
+</div>
+
+<router-outlet></router-outlet>
